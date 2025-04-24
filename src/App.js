@@ -16,6 +16,8 @@ import Compon from './components/Compon';
 import { ProductList } from './components/ProductList';
 import { Tradition_css } from './components/Tradition_css';
 import Card from './components/Card';
+import UseRef from './components/UseRef';
+import UseState from './components/UseState';
 
 export default function App() {
     const [activeSection, setActiveSection] = useState('welcome');
@@ -159,7 +161,24 @@ export default function App() {
             
             case 'Tradition_css':
                 return (
-                    <Tradition_css />
+                    <Card title="傳統CSS">
+                        <Tradition_css />
+                    </Card>
+                )
+            
+            case 'UseRef':
+                return (
+                    <Card title="UseRef 練習">
+                        <UseRef />
+                    </Card>
+                )
+            
+            case 'UseState':
+                return (
+                    <Card title="UseState 練習">
+                        <InputText />
+                        <UseState />
+                    </Card>
                 )
             
             default:
@@ -187,6 +206,8 @@ export default function App() {
                         <option value="rating">評分</option>
                         <option value="productList">商品列表</option>
                         <option value="Tradition_css">傳統css</option>
+                        <option value="UseRef">UseRef hook</option>
+                        <option value="UseState">UseState hook</option>
                     </select>
                 </div>
                 
