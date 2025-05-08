@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { createContext, useState } from 'react';
 import Layout from './components/Layout';
 import Welcome from './components/Welcome';
 import { InputText } from './components/InputText';
@@ -14,18 +14,35 @@ import Greeting from './components/Greeting';
 import Profile from './components/Profile';
 import Compon from './components/Compon';
 import { ProductList } from './components/ProductList';
-import { Tradition_css } from './components/Tradition_css';
+import { TraditionCss } from './components/TraditionCss';
 import Card from './components/Card';
 import UseRef from './components/UseRef';
 import UseState from './components/UseState';
+import MyText from './components/MyText';
+import UseEffectExample from './components/UseEffectExample';
+import UseEffectPratice from './components/UseEffectPratice';
+import UseEffectPratice2 from './components/UseEffectPratice2';
+
+export const AppContext = createContext();
+export const ColorContext = createContext();
+export const CountContext = createContext();
+export const SizeContext = createContext();
 
 export default function App() {
     const [activeSection, setActiveSection] = useState('welcome');
     const [myMoney, setMyMoney] = useState(100);
-    
+    const [username, setUsername] = useState("null");
+    const [color, setColor] = useState();
+    const [count, setCount] = useState(0);
+    const [size, setSize] = useState(20);
+
     const studentNumber = ["001","002","003","004","005"];
     const studentName = ['Alice', 'Bob', 'Charlie', 'David', 'Eve'];
     
+    const addCount = () => {
+        setCount(count+1);
+    }
+
     const handleNavClick = (section) => {
         setActiveSection(section);
         document.querySelector('.component-display').scrollIntoView({ 
@@ -159,10 +176,10 @@ export default function App() {
                     </Card>
                 )
             
-            case 'Tradition_css':
+            case 'TraditionCss':
                 return (
                     <Card title="傳統CSS">
-                        <Tradition_css />
+                        <TraditionCss />
                     </Card>
                 )
             
@@ -181,6 +198,40 @@ export default function App() {
                     </Card>
                 )
             
+            case 'userContext':
+                return (
+                    <Card title="Context 練習">
+                        <div className='App'>
+                            <ColorContext.Provider value={color}>
+                              <AppContext.Provider value={username}>
+                                <CountContext.Provider value={count}>
+                                  <SizeContext.Provider value={size}>
+                                    <MyText />
+                                  </SizeContext.Provider>
+                                </CountContext.Provider>
+                              </AppContext.Provider>
+                            </ColorContext.Provider>
+                            <button onClick={()=>{setUsername("Chen"); setColor("blue"); addCount(); setSize(10)}}>Chen</button>
+                            <button onClick={()=>{setUsername("YuZhang"); setColor("pink"); addCount(); setSize(30)}}>YuZhang</button>
+                        </div>
+                    </Card>
+                );
+            
+                case 'UseEffectExample':
+                    return (
+                        <UseEffectExample />
+                    );
+                
+                case 'UseEffectPratice':
+                    return (
+                        <UseEffectPratice />
+                    );
+                
+                case 'UseEffectPratice2':
+                    return (
+                        <UseEffectPratice2 />
+                    );
+                
             default:
                 return <Welcome name='訪客' />;
         }
@@ -205,9 +256,13 @@ export default function App() {
                         <option value="lists">清單</option>
                         <option value="rating">評分</option>
                         <option value="productList">商品列表</option>
-                        <option value="Tradition_css">傳統css</option>
+                        <option value="TraditionCss">傳統css</option>
                         <option value="UseRef">UseRef hook</option>
                         <option value="UseState">UseState hook</option>
+                        <option value="userContext">Context 練習</option>
+                        <option value="UseEffectExample">useEffect 範例</option>
+                        <option value="UseEffectPratice">useEffect 練習</option>
+                        <option value="UseEffectPratice2">useEffect 練習2</option>
                     </select>
                 </div>
                 

@@ -1,4 +1,4 @@
-export const Tradition_css = () => {
+export const TraditionCss = () => {
     return (
         <div className="container">
             <div className="card2">

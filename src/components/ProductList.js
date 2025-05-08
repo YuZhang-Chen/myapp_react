@@ -3,7 +3,7 @@ import products from '../data/products';
 import { NumbersWithLimitByHTML } from './Number';
 
 const ProductList = () => {
-    const [cart, setCart] = useState({});
+    const [, setCart] = useState({});
     useEffect(() => {
         const initialCart = products.reduce((acc, product) => {
             acc[product.id] = 0;
