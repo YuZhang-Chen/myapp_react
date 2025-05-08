@@ -22,6 +22,7 @@ import MyText from './components/MyText';
 import UseEffectExample from './components/UseEffectExample';
 import UseEffectPratice from './components/UseEffectPratice';
 import UseEffectPratice2 from './components/UseEffectPratice2';
+import UseMemo from './components/UseMemo';
 
 export const AppContext = createContext();
 export const ColorContext = createContext();
@@ -232,6 +233,11 @@ export default function App() {
                         <UseEffectPratice2 />
                     );
                 
+                case 'UseMemo':
+                    return (
+                        <UseMemo />
+                    );
+                
             default:
                 return <Welcome name='訪客' />;
         }
@@ -263,6 +269,7 @@ export default function App() {
                         <option value="UseEffectExample">useEffect 範例</option>
                         <option value="UseEffectPratice">useEffect 練習</option>
                         <option value="UseEffectPratice2">useEffect 練習2</option>
+                        <option value="UseMemo">UseMemo 練習</option>
                     </select>
                 </div>
                 
