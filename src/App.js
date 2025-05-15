@@ -23,6 +23,7 @@ import UseEffectExample from './components/UseEffectExample';
 import UseEffectPratice from './components/UseEffectPratice';
 import UseEffectPratice2 from './components/UseEffectPratice2';
 import UseMemo from './components/UseMemo';
+import CounterRedux from './components/CounterRedux';
 
 export const AppContext = createContext();
 export const ColorContext = createContext();
@@ -220,24 +221,38 @@ export default function App() {
             
                 case 'UseEffectExample':
                     return (
+                      <Card title="UseEffect 範例">
                         <UseEffectExample />
+                      </Card>
                     );
                 
                 case 'UseEffectPratice':
                     return (
-                        <UseEffectPratice />
+                        <Card title="UseEffect 練習">
+                            <UseEffectPratice />
+                        </Card>
                     );
                 
                 case 'UseEffectPratice2':
                     return (
+                      <Card title="UseEffect 練習2">
                         <UseEffectPratice2 />
+                      </Card>
                     );
                 
                 case 'UseMemo':
                     return (
-                        <UseMemo />
+                        <Card title="UseMemo 練習">
+                            <UseMemo />
+                        </Card>
                     );
                 
+                case 'CounterRedux':
+                    return (
+                        <Card title="計數器">
+                            <CounterRedux />
+                        </Card>
+                    );
             default:
                 return <Welcome name='訪客' />;
         }
@@ -270,6 +285,7 @@ export default function App() {
                         <option value="UseEffectPratice">useEffect 練習</option>
                         <option value="UseEffectPratice2">useEffect 練習2</option>
                         <option value="UseMemo">UseMemo 練習</option>
+                        <option value="CounterRedux">計數器</option>
                     </select>
                 </div>
                 
