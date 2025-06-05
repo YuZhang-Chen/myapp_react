@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import 'normalize.css';
 import { Provider } from 'react-redux';
 import store from './model/store';
+import './i18n'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

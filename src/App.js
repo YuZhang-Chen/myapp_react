@@ -24,6 +24,10 @@ import UseEffectPratice from './components/UseEffectPratice';
 import UseEffectPratice2 from './components/UseEffectPratice2';
 import UseMemo from './components/UseMemo';
 import CounterRedux from './components/CounterRedux';
+import AntIndex from './components/ui';
+import Translation from './components/Translation';
+import FormikForm from './components/formik/formikFoem';
+
 
 export const AppContext = createContext();
 export const ColorContext = createContext();
@@ -253,6 +257,23 @@ export default function App() {
                             <CounterRedux />
                         </Card>
                     );
+                case 'ant':
+                    return (
+                        <AntIndex />
+                    );
+                
+                case 'translation':
+                    return (
+                        <Card title="語言翻譯">
+                            <Translation />
+                        </Card>
+                    );
+                case 'formik':
+                    return (
+                        <Card title="Formik 表單練習">
+                            <FormikForm />
+                        </Card>
+                    );
             default:
                 return <Welcome name='訪客' />;
         }
@@ -286,6 +307,9 @@ export default function App() {
                         <option value="UseEffectPratice2">useEffect 練習2</option>
                         <option value="UseMemo">UseMemo 練習</option>
                         <option value="CounterRedux">計數器</option>
+                        <option value="ant">ant design 練習</option>
+                        <option value="translation">語言翻譯</option>
+                        <option value="formik">Formik 表單練習</option>
                     </select>
                 </div>
                 
